@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Shop@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.7">
+    <root id="1"/>
+    <database id="2" parent="1" name="Shop">
+      <ObjectId>24626</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12401</ObjectId>
+    </database>
+    <database id="4" parent="1" name="base1">
+      <ObjectId>16394</ObjectId>
+    </database>
+    <database id="5" parent="1" name="Musical_shop">
+      <ObjectId>16434</ObjectId>
+    </database>
+    <database id="6" parent="1" name="music">
+      <ObjectId>42734</ObjectId>
+    </database>
+    <role id="7" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="8" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <schema id="9" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2018-04-14.10:09:04.448</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2950</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="10" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="11" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="12" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="13" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="14" parent="2" name="information_schema">
+      <ObjectId>12113</ObjectId>
+    </schema>
+    <sequence id="15" parent="9" name="manager_id_manager_seq">
+      <ObjectId>42779</ObjectId>
+      <StateNumber>2947</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="16" parent="9" name="product_barcode_seq">
+      <ObjectId>42822</ObjectId>
+      <StateNumber>2950</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="17" parent="9" name="product_id_section_seq">
+      <ObjectId>42824</ObjectId>
+      <StateNumber>2950</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="18" parent="9" name="section_id_manager_seq">
+      <ObjectId>42802</ObjectId>
+      <StateNumber>2949</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="19" parent="9" name="section_id_section_seq">
+      <ObjectId>42798</ObjectId>
+      <StateNumber>2949</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="20" parent="9" name="section_id_shop_seq">
+      <ObjectId>42800</ObjectId>
+      <StateNumber>2949</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="21" parent="9" name="shop_id_shop_seq">
+      <ObjectId>42787</ObjectId>
+      <StateNumber>2948</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <table id="22" parent="9" name="manager">
+      <ObjectId>42781</ObjectId>
+      <StateNumber>2949</StateNumber>
+    </table>
+    <table id="23" parent="9" name="product">
+      <ObjectId>42826</ObjectId>
+      <StateNumber>2950</StateNumber>
+    </table>
+    <table id="24" parent="9" name="section">
+      <ObjectId>42804</ObjectId>
+      <StateNumber>2950</StateNumber>
+    </table>
+    <table id="25" parent="9" name="shop">
+      <ObjectId>42789</ObjectId>
+      <StateNumber>2949</StateNumber>
+    </table>
+    <column id="26" parent="22" name="id_manager">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2947</StateNumber>
+      <DefaultExpression>nextval(&apos;manager_id_manager_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>manager_id_manager_seq</SequenceName>
+    </column>
+    <column id="27" parent="22" name="surname_manager">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2947</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="28" parent="22" name="name_manager">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2947</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="29" parent="22" name="middlename_manager">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2947</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="30" parent="22" name="telephone">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>2947</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="31" parent="22" name="manager_pkey">
+      <ObjectId>42785</ObjectId>
+      <ColNames>id_manager</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="32" parent="22" name="manager_pkey">
+      <ObjectId>42786</ObjectId>
+      <ColNames>id_manager</ColNames>
+      <UnderlyingIndexName>manager_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="23" name="barcode">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2950</StateNumber>
+      <DefaultExpression>nextval(&apos;product_barcode_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>product_barcode_seq</SequenceName>
+    </column>
+    <column id="34" parent="23" name="title">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2950</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="35" parent="23" name="price">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2950</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="36" parent="23" name="count">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2950</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="37" parent="23" name="id_section">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2950</StateNumber>
+      <DefaultExpression>nextval(&apos;product_id_section_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>product_id_section_seq</SequenceName>
+    </column>
+    <index id="38" parent="23" name="product_pkey">
+      <ObjectId>42831</ObjectId>
+      <ColNames>barcode</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="39" parent="23" name="product_pkey">
+      <ObjectId>42832</ObjectId>
+      <ColNames>barcode</ColNames>
+      <UnderlyingIndexName>product_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="23" name="product_id_section_fkey">
+      <ObjectId>42833</ObjectId>
+      <ColNames>id_section</ColNames>
+      <RefTableId>42804</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>section</RefTableName>
+      <RefKeyName>section_pkey</RefKeyName>
+      <RefColNames>id_section</RefColNames>
+    </foreign-key>
+    <column id="41" parent="24" name="id_section">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2949</StateNumber>
+      <DefaultExpression>nextval(&apos;section_id_section_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>section_id_section_seq</SequenceName>
+    </column>
+    <column id="42" parent="24" name="telephone">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2949</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="24" name="title_section">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>2949</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="44" parent="24" name="id_shop">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2949</StateNumber>
+      <DefaultExpression>nextval(&apos;section_id_shop_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>section_id_shop_seq</SequenceName>
+    </column>
+    <column id="45" parent="24" name="id_manager">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2949</StateNumber>
+      <DefaultExpression>nextval(&apos;section_id_manager_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>section_id_manager_seq</SequenceName>
+    </column>
+    <index id="46" parent="24" name="section_pkey">
+      <ObjectId>42810</ObjectId>
+      <ColNames>id_section</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="47" parent="24" name="section_pkey">
+      <ObjectId>42811</ObjectId>
+      <ColNames>id_section</ColNames>
+      <UnderlyingIndexName>section_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="48" parent="24" name="section_id_shop_fkey">
+      <ObjectId>42812</ObjectId>
+      <ColNames>id_shop</ColNames>
+      <RefTableId>42789</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>shop</RefTableName>
+      <RefKeyName>shop_pkey</RefKeyName>
+      <RefColNames>id_shop</RefColNames>
+    </foreign-key>
+    <foreign-key id="49" parent="24" name="section_id_manager_fkey">
+      <ObjectId>42817</ObjectId>
+      <ColNames>id_manager</ColNames>
+      <RefTableId>42781</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>manager</RefTableName>
+      <RefKeyName>manager_pkey</RefKeyName>
+      <RefColNames>id_manager</RefColNames>
+    </foreign-key>
+    <column id="50" parent="25" name="id_shop">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2948</StateNumber>
+      <DefaultExpression>nextval(&apos;shop_id_shop_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>shop_id_shop_seq</SequenceName>
+    </column>
+    <column id="51" parent="25" name="surname_director">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2948</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="52" parent="25" name="name_director">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2948</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="53" parent="25" name="middlename_director">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2948</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="54" parent="25" name="telephone">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2948</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="55" parent="25" name="address">
+      <Position>6</Position>
+      <DataType>varchar(500)|0</DataType>
+      <StateNumber>2948</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="56" parent="25" name="shop_pkey">
+      <ObjectId>42796</ObjectId>
+      <ColNames>id_shop</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="57" parent="25" name="shop_pkey">
+      <ObjectId>42797</ObjectId>
+      <ColNames>id_shop</ColNames>
+      <UnderlyingIndexName>shop_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
