@@ -2,7 +2,6 @@ package DAOImpl;
 
 import DAO.ManagerDAO;
 import Model.Manager;
-import Model.DbConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,30 +15,9 @@ public class ManagerDAOImpl implements ManagerDAO {
 
     public ManagerDAOImpl() {    }
 
+
     @Override
-    public Manager getManagerId(Integer id) throws SQLException {
-        Manager manager = new Manager();
-        String sql = "SELECT * FROM manager WHERE id_manager = ?";
-
-        try (Connection connection = DbConnection.getInstance().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
-
-            ResultSet rs = statement.executeQuery();
-
-            if (rs.next()) {
-                manager.setManagerId(rs.getInt("id_manager"));
-                manager.setName(rs.getString("name_manager"));
-                manager.setSurname(rs.getString("surname_manager"));
-                manager.setMiddlename(rs.getString("middlename_manager"));
-                manager.setTelephone(rs.getString("telephone"));
-            }
-        }
-        return manager;
-	}
-	
-    @Override
-    public void Delete(Manager manager) {
+    public void delete(Manager manager) {
 		try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement("delete from manager where id_manager=?");
 
@@ -51,7 +29,7 @@ public class ManagerDAOImpl implements ManagerDAO {
     }
 
     @Override
-    public void Update(Manager manager) {
+    public void update(Manager manager) {
 		try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement("update manager set name_manager=?," +
                     "surname_manager=?,middlename_manager=?, telephone=? where id_manager=?");
@@ -67,7 +45,7 @@ public class ManagerDAOImpl implements ManagerDAO {
     }
 
     @Override
-    public void Insert(Manager manager) {
+    public void insert(Manager manager) {
 	    try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement(
                     "INSERT INTO manager(name_manager, surname_manager, middlename_manager, telephone)" +
@@ -83,7 +61,7 @@ public class ManagerDAOImpl implements ManagerDAO {
     }
 	
 	@Override
-    public List<Manager> GetAll() throws SQLException {
+    public List<Manager> getAll() {
         listManager = new ArrayList<Manager>();
 
         try (Connection connection = DbConnection.getInstance().getConnection()) {
@@ -100,6 +78,8 @@ public class ManagerDAOImpl implements ManagerDAO {
 
                 listManager.add(manager);
             }
+        }catch (SQLException e) {
+            e.printStackTrace();
         }
         return listManager;
     }

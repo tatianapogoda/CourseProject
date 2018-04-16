@@ -1,95 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
-
-
-    <context-param>
-        <param-name>jdbcURL</param-name>
-        <param-value>jdbc:postgresql://localhost:5432/Shop</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>jdbcUsername</param-name>
-       <param-value>postgres</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>jdbcPassword</param-name>
-        <param-value>qwerty</param-value>
-    </context-param>
-
-    <servlet>
-        <servlet-name>ShopServletControl</servlet-name>
-        <servlet-class>Control.ShopServletControl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ShopServletControl</servlet-name>
-        <url-pattern>/newShop</url-pattern>
-        <url-pattern>/insertShop</url-pattern>
-        <url-pattern> /deleteShop</url-pattern>
-        <url-pattern>/editShop</url-pattern>
-        <url-pattern>/updateShop</url-pattern>
-        <url-pattern>/listManager</url-pattern>
-        <url-pattern>/listSection</url-pattern>
-        <url-pattern>/listProduct</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ManagerServletControl</servlet-name>
-        <servlet-class>Control.ManagerServletControl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ManagerServletControl</servlet-name>
-        <url-pattern>/newpageManager</url-pattern>
-        <url-pattern>/newManager</url-pattern>
-        <url-pattern>/insertManager</url-pattern>
-        <url-pattern> /deleteManager</url-pattern>
-        <url-pattern>/editManager</url-pattern>
-        <url-pattern>/updateManager</url-pattern>
-        <url-pattern>/list_Shop</url-pattern>
-        <url-pattern>/list_Product</url-pattern>
-        <url-pattern>/list_Section</url-pattern>
-
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>SectionServletControl</servlet-name>
-        <servlet-class>Control.SectionServletControl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>SectionServletControl</servlet-name>
-        <url-pattern>/newpageSection</url-pattern>
-        <url-pattern>/newSection</url-pattern>
-        <url-pattern>/insertSection</url-pattern>
-        <url-pattern> /deleteSection</url-pattern>
-        <url-pattern>/editSection</url-pattern>
-        <url-pattern>/updateSection</url-pattern>
-        <url-pattern>/listtManager</url-pattern>
-        <url-pattern>/listtProduct</url-pattern>
-        <url-pattern>/listtShop</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ProductServletControl</servlet-name>
-        <servlet-class>Control.ProductServletControl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ProductServletControl</servlet-name>
-        <url-pattern>/newpageProduct</url-pattern>
-        <url-pattern>/newProduct</url-pattern>
-        <url-pattern>/insertProduct</url-pattern>
-        <url-pattern> /deleteProduct</url-pattern>
-        <url-pattern>/editProduct</url-pattern>
-        <url-pattern>/updateProduct</url-pattern>
-        <url-pattern>/list_manager</url-pattern>
-        <url-pattern>/listShop</url-pattern>
-        <url-pattern>/list_section</url-pattern>
-
-    </servlet-mapping>
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+    <display-name>Shop</display-name>
 </web-app>

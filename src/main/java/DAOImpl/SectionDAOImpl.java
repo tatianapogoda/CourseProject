@@ -2,7 +2,6 @@ package DAOImpl;
 
 import DAO.SectionDAO;
 import Model.Section;
-import Model.DbConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,28 +16,7 @@ public class SectionDAOImpl implements SectionDAO {
     public SectionDAOImpl()   {    }
 
     @Override
-    public Section getSectionId(Integer id) throws SQLException {
-        Section section =new Section();
-        String sql = "SELECT * FROM section WHERE id_section = ?";
-
-        try (Connection connection = DbConnection.getInstance().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
-
-            ResultSet rs = statement.executeQuery();
-
-            if (rs.next()) {
-                section.setSectionId(rs.getInt("id_section"));
-                section.setTelephone(rs.getString("telephone"));
-                section.setTitle(rs.getString("title"));
-                section.setShopId(rs.getInt("id_shop"));
-                section.setManagerId(rs.getInt("id_manager"));
-            }
-        }
-        return section;
-    }
-    @Override
-    public void Delete(Section section) {
+    public void delete(Section section) {
         try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement("delete from section where id_section=?");
 
@@ -50,7 +28,7 @@ public class SectionDAOImpl implements SectionDAO {
     }
 
     @Override
-    public void Update(Section section) {
+    public void update(Section section) {
         try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement("update section set telephone=?," +
                     "title=?,id_shop=?, id_manager=? where id_section=?");
@@ -66,7 +44,7 @@ public class SectionDAOImpl implements SectionDAO {
     }
 
     @Override
-    public void Insert(Section section) {
+    public void insert(Section section) {
         try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement(
                     "INSERT INTO section(telephone, title, id_shop, id_manager)" +
@@ -82,7 +60,7 @@ public class SectionDAOImpl implements SectionDAO {
     }
 	
 	@Override
-    public List<Section> GetAll() throws SQLException {
+    public List<Section> getAll() {
         listSection = new ArrayList<Section>();
 
         try (Connection connection = DbConnection.getInstance().getConnection()) {
@@ -98,6 +76,8 @@ public class SectionDAOImpl implements SectionDAO {
 
                 listSection.add(section);
             }
+        }catch (SQLException e) {
+            e.printStackTrace();
         }
         return listSection;
     }

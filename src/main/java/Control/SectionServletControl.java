@@ -1,7 +1,6 @@
 package Control;
 
 import DAO.SectionDAO;
-import Model.DbConnection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import DAOImpl.ShopDAOImpl;
-import DAOImpl.SectionDAOImpl;
 import DAOImpl.ManagerDAOImpl;
 import Model.Manager;
 import Model.Section;

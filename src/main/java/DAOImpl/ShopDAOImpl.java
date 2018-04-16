@@ -2,7 +2,6 @@ package DAOImpl;
 
 import DAO.ShopDAO;
 import Model.Shop;
-import Model.DbConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,30 +15,7 @@ public class ShopDAOImpl implements ShopDAO {
     public ShopDAOImpl() {    }
 
     @Override
-    public Shop getShopId(Integer id) throws SQLException {
-        Shop shop =new Shop();
-        String sql = "SELECT * FROM shop WHERE id_shop = ?";
-
-        try (Connection connection = DbConnection.getInstance().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
-
-            ResultSet rs = statement.executeQuery();
-
-            if (rs.next()) {
-                shop.setShopId(rs.getInt("id_shop"));
-                shop.setDirectorSurname(rs.getString("surname_director"));
-                shop.setDirectorName(rs.getString("name_director"));
-                shop.setDirectorMiddlename(rs.getString("middlename_director"));
-                shop.setTelephone(rs.getString("telephone"));
-				shop.setAddress(rs.getString("address"));
-            }
-        }
-        return shop;
-    }
-
-    @Override
-    public void Insert(Shop shop) {
+    public void insert(Shop shop) {
 
         try(Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement(
@@ -58,17 +34,17 @@ public class ShopDAOImpl implements ShopDAO {
     }
 
     @Override
-    public void Update(Shop shop) {
+    public void update(Shop shop) {
 
         try(Connection connection = DbConnection.getInstance().getConnection())  {
             PreparedStatement ps = connection.prepareStatement("update shop set surname_director=?," +
                     "name_director=?,middlename_director=?, telephone=?,address=? where id_shop=?");
             ps.setString(1, shop.getDirectorSurname());
             ps.setString(2, shop.getDirectorName());
-            ps.setString(3, shop.getDirectorMiddlename());            
-			ps.setString(4, shop.getTelephone());
+            ps.setString(3, shop.getDirectorMiddlename());
+            ps.setString(4, shop.getTelephone());
             ps.setString(5, shop.getAddress());
-			ps.setInt(6, shop.getShopId());
+            ps.setInt(6, shop.getShopId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,7 +52,7 @@ public class ShopDAOImpl implements ShopDAO {
     }
 
     @Override
-    public void Delete(Shop shop) {
+    public void delete(Shop shop) {
         try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement("delete from shop where id_shop=?");
 
@@ -87,9 +63,8 @@ public class ShopDAOImpl implements ShopDAO {
         }
     }
 
-
     @Override
-    public List<Shop> GetAll() {
+    public List<Shop> getAll() {
 		listShop = new ArrayList<Shop>();
 		
         try (Connection connection = DbConnection.getInstance().getConnection()) {

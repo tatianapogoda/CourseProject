@@ -66,5 +66,10 @@
             <artifactId>postgresql</artifactId>
             <version>9.4-1200-jdbc41</version>
         </dependency>
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>CourseProject</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 </project>

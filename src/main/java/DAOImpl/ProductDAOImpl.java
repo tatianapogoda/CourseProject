@@ -2,7 +2,6 @@ package DAOImpl;
 
 import DAO.ProductDAO;
 import Model.Product;
-import Model.DbConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ public class ProductDAOImpl implements ProductDAO {
     public ProductDAOImpl() {    }
 
     @Override
-    public Product getBarcode(Integer barcode) throws SQLException {
+    public Product getBarcode(Integer barcode) {
         Product product = new Product();
         String sql = "SELECT * FROM product WHERE barcode = ?";
 
@@ -33,12 +32,14 @@ public class ProductDAOImpl implements ProductDAO {
                 product.setCount(rs.getInt("count"));
                 product.setSectionId(rs.getInt("sectionId"));
             }
+        }catch (SQLException e) {
+            e.printStackTrace();
         }
         return product;
     }
 	
     @Override
-    public void Delete(Product product) {
+    public void delete(Product product) {
         try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement("delete from product where barcode=?");
 
@@ -50,7 +51,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public void Update(Product product) {
+    public void update(Product product) {
         try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement("update product set title=?," +
                     "price=?, count=?, id_section=? where barcode=?");
@@ -66,7 +67,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public void Insert(Product product) {
+    public void insert(Product product) {
         try (Connection connection = DbConnection.getInstance().getConnection()) {
             PreparedStatement ps = connection.prepareStatement(
                     "INSERT INTO product(title, price, count, id_section)" +
@@ -82,7 +83,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 	
 	@Override
-    public List<Product> GetAll() throws SQLException {
+    public List<Product> getAll() {
         listProduct = new ArrayList<Product>();
 
         try (Connection connection = DbConnection.getInstance().getConnection()) {
@@ -98,6 +99,8 @@ public class ProductDAOImpl implements ProductDAO {
 
                 listProduct.add(product);
             }
+        }catch (SQLException e) {
+            e.printStackTrace();
         }
         return listProduct;
     }

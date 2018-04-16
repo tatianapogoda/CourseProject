@@ -1,7 +1,5 @@
 package Control;
 import DAO.ManagerDAO;
-import DAOImpl.ManagerDAOImpl;
-import Model.DbConnection;
 import Model.Manager;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.List;
+
 public class Shop {
     private int shopId;
     private String directorSurname;
@@ -7,6 +9,7 @@ public class Shop {
     private String directorMiddlename;
     private String telephone;
     private String address;
+    private List<Shop> shops;
 
     public Shop(){
 
@@ -52,6 +55,15 @@ public class Shop {
     }
     public String getAddress(){
         return address;
+    }
+
+    public void deleteShop(Integer id){
+        for (Shop e : shops) {
+            if (e.getShopId() == id) {
+                shops.remove(e);
+                break;
+            }
+        }
     }
 
 }
